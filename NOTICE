@@ -1,0 +1,14 @@
+gemini-plugin-cc
+Copyright 2026 stevenc81
+
+This product includes software developed by
+stevenc81 and contributors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Portions of the plugin architecture, test patterns, and command layout
+are adapted from openai/codex-plugin-cc, also licensed under Apache-2.0.

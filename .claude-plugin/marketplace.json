@@ -1,0 +1,21 @@
+{
+  "name": "stevenc81-gemini",
+  "owner": {
+    "name": "stevenc81"
+  },
+  "metadata": {
+    "description": "Gemini plugin for Claude Code: grounded fact-checking via Antigravity CLI.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "gemini",
+      "description": "Use Antigravity CLI from Claude Code to fact-check with live web grounding.",
+      "version": "0.1.0",
+      "author": {
+        "name": "stevenc81"
+      },
+      "source": "./plugins/gemini"
+    }
+  ]
+}

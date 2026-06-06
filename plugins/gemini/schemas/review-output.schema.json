@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["overall", "summary", "claims", "reasoning_issues"],
+  "properties": {
+    "overall": {
+      "enum": ["trustworthy", "mixed", "problematic"]
+    },
+    "summary": { "type": "string" },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "verdict", "reasoning"],
+        "properties": {
+          "claim": { "type": "string" },
+          "verdict": { "enum": ["supported", "uncertain", "contradicted"] },
+          "reasoning": { "type": "string" },
+          "correction": { "type": "string" },
+          "sources": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "reasoning_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["issue", "explanation"],
+        "properties": {
+          "issue": { "type": "string" },
+          "explanation": { "type": "string" }
+        }
+      }
+    }
+  }
+}
