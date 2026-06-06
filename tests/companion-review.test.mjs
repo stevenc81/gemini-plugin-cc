@@ -81,7 +81,7 @@ test("happy path: renders structured output with claims and sources, passes no m
     assert.match(args.prompt, /content_to_review/);
     assert.match(args.prompt, /Redis is AP/);
     assert.match(args.prompt, /google_web_search/);
-    // The runner must not receive any modelId — agy 1.0.0 ignores model selection.
+    // The runner must not receive any modelId, as agy 1.0.0 ignores model selection.
     assert.equal("modelId" in args, false);
     return okPayload;
   });

@@ -6,15 +6,15 @@ Use the Antigravity CLI (`agy`) from inside Claude Code to fact-check with live 
 
 ## What you get
 
-- `/gemini:review` — a grounded fact-check of content from the current conversation. `agy` runs live web searches autonomously and returns structured findings: which claims are supported, uncertain, or contradicted, with source URLs.
-- `/gemini:setup` — verifies that `agy` is installed and signed in via a trivial round-trip prompt.
+- `/gemini:review` produces a grounded fact-check of content from the current conversation. `agy` runs live web searches autonomously and returns structured findings: which claims are supported, uncertain, or contradicted, with source URLs.
+- `/gemini:setup` verifies that `agy` is installed and signed in via a trivial round-trip prompt.
 
 Scope is deliberately narrow. One command, one job: grounded fact-checking.
 
 ## Requirements
 
 - **Antigravity CLI** installed (`agy --version` must work). See https://antigravity.google
-- **Sign-in** — run `agy -p hello` once interactively; the first call opens a browser for OAuth and writes the session under `~/.gemini/antigravity-cli/`
+- **Sign-in.** Run `agy -p hello` once interactively; the first call opens a browser for OAuth and writes the session under `~/.gemini/antigravity-cli/`
 - **Node.js 18.18 or later**
 
 ## Install
@@ -45,14 +45,20 @@ Fact-checks content from the current conversation with live web grounding. By de
 ```bash
 /gemini:review
 /gemini:review --wait
-/gemini:review focus on the security claims
-/gemini:review review the paragraph I pasted above about rate limits
+/gemini:review check the second paragraph above
+/gemini:review focus on the version numbers
 ```
 
+Anything after `/gemini:review` is plain natural language, not fixed syntax or reserved keywords. Claude reads it and uses it in one of two ways:
+
+- To choose what gets reviewed. Phrases like `check the second paragraph above` or `review what I just pasted` point Claude at specific text from the conversation, instead of the default (its previous reply).
+- To steer attention. Phrases like `focus on the version numbers` leave the content as-is and tell the agent to weight those claims most heavily. It still reports any other material issue it finds.
+
+The example wording is illustrative. There are no topic modes or special terms, so write whatever describes the text you mean and the angle you care about.
+
 Flags:
-- `--wait` — run in the foreground and stream back when done
-- `--background` — run as a background task; Claude Code notifies when finished
-- optional trailing positional args — focus text directing the agent's attention, or natural-language instructions telling Claude which content to check
+- `--wait` runs the review in the foreground and streams back when done.
+- `--background` runs it as a background task; Claude Code notifies you when it finishes.
 
 How it works:
 - Claude selects the content to review from your message and the conversation context (defaulting to its previous turn when you don't specify), then pipes it to the companion via a quoted heredoc. No temp files, no copy-paste.

@@ -175,7 +175,7 @@ export function renderSetupReport({
   const lines = ["Gemini Plugin Setup Check (via Antigravity CLI)", "=================================================", ""];
   lines.push(`agy binary:    ${agy?.available ? "available" : "NOT FOUND"}${agy?.detail ? ` (${agy.detail})` : ""}`);
   lines.push(`Transport:     ${transportOk ? `ok${version ? ` (agy ${version})` : ""}` : "failed"}`);
-  lines.push(`Auth check:    ${authOk ? "ok" : "failed"}${authDetail ? ` — ${authDetail}` : ""}`);
+  lines.push(`Auth check:    ${authOk ? "ok" : "failed"}${authDetail ? `, ${authDetail}` : ""}`);
   if (roundTripMs != null) lines.push(`Round trip:    ${roundTripMs}ms`);
   if (nextSteps.length > 0) {
     lines.push("");
