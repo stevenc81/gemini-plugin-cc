@@ -1,5 +1,12 @@
 # gemini-plugin-cc
 
+> **Moved.** This plugin now lives in [stevenc81/claude-plugins](https://github.com/stevenc81/claude-plugins/tree/main/plugins/gemini). This repository is archived. If you installed from here, your install keeps working and gets updates from the new repository. For a new install, run:
+>
+> ```
+> /plugin marketplace add stevenc81/claude-plugins
+> /plugin install gemini@stevenc81
+> ```
+
 Use the Antigravity CLI (`agy`) from inside Claude Code to fact-check with live web grounding. This plugin is for Claude Code users who want a second-opinion reviewer that goes to the live web (not just training data) to verify claims made in a conversation.
 
 > **Heads up:** This plugin previously spawned `gemini --acp` and spoke ACP (JSON-RPC) over stdio. Google retired Gemini CLI for free/Pro/Ultra users on June 18, 2026 and replaced it with [Antigravity CLI](https://antigravity.google) (`agy`), built in Go. This plugin now runs `agy --print` and reads its JSON output. The slash commands carry over. See [Migration notes](#migration-notes-gemini-cli--antigravity-cli) below.

@@ -13,7 +13,11 @@
       "author": {
         "name": "stevenc81"
       },
-      "source": "./plugins/gemini"
+      "source": {
+        "source": "git-subdir",
+        "url": "stevenc81/claude-plugins",
+        "path": "plugins/gemini"
+      }
     }
   ]
 }
